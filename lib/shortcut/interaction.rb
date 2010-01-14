@@ -1,15 +1,15 @@
-require 'curses'
-
 module Shortcut
   module Interaction
     
-    autoload :Screen, 'shortcut/interaction/screen'
+    autoload :Frontend, 'shortcut/interaction/frontend'
+    autoload :Screen,   'shortcut/interaction/screen'
       
-    KEY_ESC     = 27    
-    KEY_RETURN  = 10
-    KEY_TAB     = 9
+    KEY_ESC         = 27
+    KEY_RETURN      = 10    
+    KEY_RETURN_ALT  = 13
+    KEY_TAB         = 9
     
-    ACTION_KEYS = [KEY_TAB, KEY_ESC, KEY_RETURN]
+    ACTION_KEYS = [KEY_TAB, KEY_ESC, KEY_RETURN, KEY_RETURN_ALT]
     
     class << self
       
@@ -19,13 +19,13 @@ module Shortcut
       def start(query, commander)
         @query = query
         @commander = commander
-        Screen.build
+        Frontend.create
       end
       
       def handle_action_for(key)
         case key
-        when KEY_RETURN
-          Screen.close
+        when KEY_RETURN, KEY_RETURN_ALT
+          Frontend.close
           new_location = @selected_item || "~"
           puts "Jump to: #{new_location}"
           @commander.switch_location(new_location)
@@ -35,10 +35,10 @@ module Shortcut
         end
       end
       
-      def query(char)
-        @query.update(char)
+      def query(keywords)
+        @query.update(keywords)
         @selected_item = @query.items.first
-        Screen.file_list.items = @query.items
+        Frontend.update_item_list(@query.items)
       end
       
     end

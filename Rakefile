@@ -11,6 +11,8 @@ begin
     gem.homepage = "http://github.com/rubyphunk/shortcut"
     gem.authors = ["rubyphunk"]
     gem.add_dependency "rb-appscript", ">= 0"
+    gem.add_dependency "ncurses", ">= 0.9.1"
+    gem.add_dependency "rbcurse", ">= 0.1.3"
     gem.add_development_dependency "shoulda", ">= 0"
     gem.add_development_dependency "yard", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

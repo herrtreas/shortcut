@@ -25,7 +25,16 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "bin/shortcut",
      "lib/shortcut.rb",
+     "lib/shortcut/commander.rb",
+     "lib/shortcut/index.rb",
+     "lib/shortcut/interaction.rb",
+     "lib/shortcut/interaction/screen.rb",
+     "lib/shortcut/interaction/screen/file_list.rb",
+     "lib/shortcut/interaction/screen/input_field.rb",
+     "lib/shortcut/query.rb",
+     "shortcut.gemspec",
      "test/helper.rb",
      "test/test_shortcut.rb"
   ]
