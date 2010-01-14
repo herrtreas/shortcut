@@ -26,7 +26,7 @@ module Shortcut
     def find(search_term)
       @lines.select do |line|
         line.include?(search_term)
-      end[0...10]
+      end
     end
     
   end

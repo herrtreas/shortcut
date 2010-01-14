@@ -15,7 +15,7 @@ module Shortcut
           end
           
           def items=(new_items)
-            @items = new_items
+            @items = new_items[0..(Ncurses.LINES - 5)]
             @field.list_data_model.remove_all
             @items.each do |item|
               @field.list_data_model.append(item)

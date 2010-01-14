@@ -5,18 +5,19 @@
 
 Gem::Specification.new do |s|
   s.name = %q{shortcut}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["rubyphunk"]
-  s.date = %q{2010-01-13}
+  s.date = %q{2010-01-14}
   s.default_executable = %q{shortcut}
   s.description = %q{Shortcut want's to help you navigate quickly thru your terminal}
   s.email = %q{rubyphunk@gmail.com}
   s.executables = ["shortcut"]
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.rdoc",
+     "TODO"
   ]
   s.files = [
     ".document",
@@ -24,15 +25,18 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "TODO",
      "VERSION",
      "bin/shortcut",
      "lib/shortcut.rb",
      "lib/shortcut/commander.rb",
      "lib/shortcut/index.rb",
      "lib/shortcut/interaction.rb",
-     "lib/shortcut/interaction/screen.rb",
-     "lib/shortcut/interaction/screen/file_list.rb",
-     "lib/shortcut/interaction/screen/input_field.rb",
+     "lib/shortcut/interaction/frontend.rb",
+     "lib/shortcut/interaction/frontend/controls.rb",
+     "lib/shortcut/interaction/frontend/controls/item_list.rb",
+     "lib/shortcut/interaction/frontend/controls/option_tab.rb",
+     "lib/shortcut/interaction/frontend/controls/search_box.rb",
      "lib/shortcut/query.rb",
      "shortcut.gemspec",
      "test/helper.rb",
@@ -54,15 +58,21 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rb-appscript>, [">= 0"])
+      s.add_runtime_dependency(%q<ncurses>, [">= 0.9.1"])
+      s.add_runtime_dependency(%q<rbcurse>, [">= 0.1.3"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<yard>, [">= 0"])
     else
       s.add_dependency(%q<rb-appscript>, [">= 0"])
+      s.add_dependency(%q<ncurses>, [">= 0.9.1"])
+      s.add_dependency(%q<rbcurse>, [">= 0.1.3"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<yard>, [">= 0"])
     end
   else
     s.add_dependency(%q<rb-appscript>, [">= 0"])
+    s.add_dependency(%q<ncurses>, [">= 0.9.1"])
+    s.add_dependency(%q<rbcurse>, [">= 0.1.3"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<yard>, [">= 0"])
   end
