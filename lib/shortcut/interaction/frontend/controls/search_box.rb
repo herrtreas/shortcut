@@ -27,17 +27,10 @@ module Shortcut
             @field.getvalue
           end
           
-          def handle_key(char)
-            @field.handle_key(char)
-          end
-          
           def update_cursor_position
             @form.setpos(0, @field.getvalue.length + 3)
           end
           
-          def acquire_focus
-            @field.focus
-          end
         end
       end
     end
