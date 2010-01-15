@@ -21,18 +21,16 @@ module Shortcut
               @window = VER::Window.root_window
               @form = Form.new(@window)
               
-              # Controls::OptionTab.new(@form)
               @search_box = Controls::SearchBox.new(@form)
               @item_list = Controls::ItemList.new(@form)
+              Controls::Footer.new(@form)
               
               @form.repaint
               @window.wrefresh
             
               Ncurses::Panel.update_panels
               
-              loop do
-                char = @window.getchar
-                
+              while((char = @window.getchar()) != ?\C-q )
                 if Shortcut::Interaction::ACTION_KEYS.include?(char.to_i)
                   Interaction.handle_action_for char.to_i
                   @form.active_index = @item_list.field.id

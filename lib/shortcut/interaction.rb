@@ -4,14 +4,13 @@ module Shortcut
     autoload :Frontend, 'shortcut/interaction/frontend'
     autoload :Screen,   'shortcut/interaction/screen'
       
-    KEY_ESC         = 27
     KEY_RETURN      = 10    
     KEY_RETURN_ALT  = 13
     KEY_TAB         = 9
     KEY_DOWN        = 258
     KEY_UP          = 259
     
-    ACTION_KEYS = [KEY_TAB, KEY_ESC, KEY_RETURN, KEY_RETURN_ALT, KEY_DOWN, KEY_UP]
+    ACTION_KEYS = [KEY_TAB, KEY_RETURN, KEY_RETURN_ALT, KEY_DOWN, KEY_UP]
     
     class << self
       
@@ -28,9 +27,6 @@ module Shortcut
         when KEY_RETURN, KEY_RETURN_ALT
           Frontend.close
           @commander.switch_location(Frontend.selected_item)
-          exit(0)
-        when KEY_ESC
-          $log.debug "Exist"
           exit(0)
         end
       end

@@ -1,4 +1,3 @@
-* Switch Selected with KEY_DOWN + KEY_UP
 * Quick Jump List: Strg + Number
 * Jump Options: Open in new Tab, Open in new Terminal, Clear Terminal after Switch -> Defaults in Config
 * Ignore .git -> Config

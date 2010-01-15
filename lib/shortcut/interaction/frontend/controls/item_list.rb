@@ -31,9 +31,9 @@ module Shortcut
             @field = Listbox.new(@form) do
               name   "items"
               row  1
-              col  2
-              width Ncurses.COLS - 4
-              height Ncurses.LINES - 3
+              col  0
+              width Ncurses.COLS - 1
+              height Ncurses.LINES - 4
               list items
               selection_mode :SINGLE
             end
