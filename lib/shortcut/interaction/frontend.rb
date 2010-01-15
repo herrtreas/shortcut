@@ -32,14 +32,19 @@ module Shortcut
               
               loop do
                 char = @window.getchar
-
+                
                 if Shortcut::Interaction::ACTION_KEYS.include?(char.to_i)
                   Interaction.handle_action_for char.to_i
                 else
+                  if @form.active_index == @item_list.field.id
+                    @form.active_index = @search_box.field.id
+                  end
+
                   Interaction.query(@search_box.value)
                 end
-
+                
                 @form.handle_key(char)
+                @search_box.update_cursor_position
                 @window.wrefresh
               end
             end
@@ -55,6 +60,8 @@ module Shortcut
         end
         
         def close
+          return if @_closed
+          @_closed = true
           @window.destroy if !@window.nil?
           VER::stop_ncurses
         end
@@ -63,6 +70,9 @@ module Shortcut
           @item_list.items = new_items
         end
         
+        def selected_item
+          @item_list.selected
+        end
       end
       
     end

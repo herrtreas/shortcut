@@ -5,8 +5,8 @@ module Shortcut
         class ItemList
           include RubyCurses
           
+          attr_accessor :field
           attr_accessor :items
-          
           
           def initialize(form)
             @form = form
@@ -20,8 +20,10 @@ module Shortcut
             @items.each do |item|
               @field.list_data_model.append(item)
             end
-            
-            # @field.repaint
+          end
+          
+          def selected
+            @field.getvalue[0]
           end
           
           def draw

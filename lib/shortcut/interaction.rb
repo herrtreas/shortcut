@@ -8,8 +8,10 @@ module Shortcut
     KEY_RETURN      = 10    
     KEY_RETURN_ALT  = 13
     KEY_TAB         = 9
+    KEY_DOWN        = 258
+    KEY_UP          = 259
     
-    ACTION_KEYS = [KEY_TAB, KEY_ESC, KEY_RETURN, KEY_RETURN_ALT]
+    ACTION_KEYS = [KEY_TAB, KEY_ESC, KEY_RETURN, KEY_RETURN_ALT, KEY_DOWN, KEY_UP]
     
     class << self
       
@@ -26,18 +28,17 @@ module Shortcut
         case key
         when KEY_RETURN, KEY_RETURN_ALT
           Frontend.close
-          new_location = @selected_item || "~"
-          puts "Jump to: #{new_location}"
-          @commander.switch_location(new_location)
+          @commander.switch_location(@selected_item) if @selected_item
           exit(0)
         when KEY_ESC
+          $log.debug "Exist"
           exit(0)
         end
       end
       
       def query(keywords)
         @query.update(keywords)
-        @selected_item = @query.items.first
+        @selected_item = Frontend.selected_item
         Frontend.update_item_list(@query.items)
       end
       
