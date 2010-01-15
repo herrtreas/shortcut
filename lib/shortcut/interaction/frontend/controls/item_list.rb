@@ -23,7 +23,7 @@ module Shortcut
           end
           
           def selected
-            @field.getvalue[0]
+            @items[@field.current_index]
           end
           
           def draw
@@ -35,6 +35,7 @@ module Shortcut
               width Ncurses.COLS - 4
               height Ncurses.LINES - 3
               list items
+              selection_mode :SINGLE
             end
           end
             

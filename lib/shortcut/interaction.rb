@@ -16,7 +16,6 @@ module Shortcut
     class << self
       
       attr_accessor :commander
-      attr_accessor :selected_item
       
       def start(query, commander)
         @query = query
@@ -28,7 +27,7 @@ module Shortcut
         case key
         when KEY_RETURN, KEY_RETURN_ALT
           Frontend.close
-          @commander.switch_location(@selected_item) if @selected_item
+          @commander.switch_location(Frontend.selected_item)
           exit(0)
         when KEY_ESC
           $log.debug "Exist"
@@ -38,7 +37,6 @@ module Shortcut
       
       def query(keywords)
         @query.update(keywords)
-        @selected_item = Frontend.selected_item
         Frontend.update_item_list(@query.items)
       end
       
