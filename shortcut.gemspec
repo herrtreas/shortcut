@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{shortcut}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["rubyphunk"]
-  s.date = %q{2010-01-14}
+  s.date = %q{2010-01-15}
   s.default_executable = %q{shortcut}
   s.description = %q{Shortcut want's to help you navigate quickly thru your terminal}
   s.email = %q{rubyphunk@gmail.com}
