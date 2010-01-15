@@ -35,6 +35,7 @@ module Shortcut
                 
                 if Shortcut::Interaction::ACTION_KEYS.include?(char.to_i)
                   Interaction.handle_action_for char.to_i
+                  @form.active_index = @item_list.field.id
                 else
                   if @form.active_index == @item_list.field.id
                     @form.active_index = @search_box.field.id
